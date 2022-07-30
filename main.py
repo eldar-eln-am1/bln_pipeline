@@ -1,4 +1,3 @@
-from apiConfig import API
 from blsPipeline import DataProcess
 
 DataProcess().run_bls_pipeline()
