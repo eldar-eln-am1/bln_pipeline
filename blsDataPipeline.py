@@ -29,7 +29,7 @@ class DataProcess():
     
     def run_bls_pipeline(self):
         
-        # self.fetch_data()
+        self.fetch_data()
         
         self.mirror_data()
         
@@ -99,9 +99,7 @@ class DataProcess():
         
         with open('files_to_mirror.json', 'w') as file:   ### Writing to a json file the file name that we need to process.
                 json.dump({"file_name" : []}, file)
-
-
-# DataProcess().run_bls_pipeline()
+                
 
 
 

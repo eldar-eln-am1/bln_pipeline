@@ -1,4 +1,4 @@
-from blsPipeline import DataProcess
+from blsDataPipeline import DataProcess
 
 DataProcess().run_bls_pipeline()
 
