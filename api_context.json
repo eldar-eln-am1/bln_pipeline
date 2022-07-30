@@ -1,0 +1,10 @@
+{
+    "url" : "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+    "header": {"Content-type": "application/json"},
+    "payload":{
+            "seriesid": 
+                [ "LAUCT395688200000003", "LAUCT394713800000003", "LAUCT485235600000003", "LAUCN271410000000003", "LAUCN420410000000003"]
+                ,"startyear":"2019"
+                ,"endyear":"2021"
+            }
+    }
