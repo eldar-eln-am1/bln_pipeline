@@ -101,7 +101,6 @@ class DataProcess():
                 json.dump({"file_name" : []}, file)
 
 
-# DataProcess().run_bls_pipeline()
 
 
 
