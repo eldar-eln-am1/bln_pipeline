@@ -4,12 +4,32 @@ import pandas as pd
 from datetime import datetime as dt
 import time
 
+class API:
+    def __init__(self, url, header):
+        self.url = url
+        self.header = header
+        
+    def get(url, header):
+        response = requests.get(url, headers= header)
+        if response.ok == True:
+            return response
+        else:
+            raise Exception("Error in server or client request")
+            
+    def post(url, payload, header):
+        response = requests.post(url, data = payload, headers=header)
+        if response.ok == True:
+            return response
+        else:
+            raise Exception("Error in server or client request")
+ 
+
 
 class DataProcess():
     
     def run_bls_pipeline(self):
         
-        self.fetch_data()
+        # self.fetch_data()
         
         self.mirror_data()
         
@@ -81,6 +101,7 @@ class DataProcess():
                 json.dump({"file_name" : []}, file)
 
 
+# DataProcess().run_bls_pipeline()
 
 
 
