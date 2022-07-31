@@ -73,12 +73,14 @@ class DataProcess():
         files = json.load(open('files_to_mirror.json')) 
         
         ### Looping through the files we saved from our previous process.
-        for file in files['file_name']:
-            if len(files['file_name']) == 0:
-                raise Exception("*** There are no files to process ***")
-            else:
+        #### Error handling for files we processed/ there are no files to process.
+        if len(files['file_name']) == 0:
+            raise Exception("*** There are no files to process ***")
+        else:
+            for file in files['file_name']:
                 json_data = json.load(open(file))
                 if json_data['is_processed'] == 1:
+                    print(" *** The file: " + file + " has been process already")
                     pass
                     # raise Exception("The file :" + file_name + " has been processed already")
                 else:
@@ -86,6 +88,7 @@ class DataProcess():
                         for row in series['data']:
                             row['seriesID'] = series['seriesID']
                             row['received_date'] = json_data['received_date']
+                            row['raw_file'] = file
                             table_data.append(row)
 
                 json_data['is_processed'] = 1   ### Changing the indication that the file has been processed.
@@ -100,6 +103,3 @@ class DataProcess():
         with open('files_to_mirror.json', 'w') as file:   ### Writing to a json file the file name that we need to process.
                 json.dump({"file_name" : []}, file)
                 
-
-
-
