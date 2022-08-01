@@ -3,26 +3,7 @@ import json
 import pandas as pd
 from datetime import datetime as dt
 import time
-
-class API:
-    def __init__(self, url, header):
-        self.url = url
-        self.header = header
-        
-    def get(url, header):
-        response = requests.get(url, headers= header)
-        if response.ok == True:
-            return response
-        else:
-            raise Exception("Error in server or client request")
-            
-    def post(url, payload, header):
-        response = requests.post(url, data = payload, headers=header)
-        if response.ok == True:
-            return response
-        else:
-            raise Exception("Error in server or client request")
- 
+from apiReq import API
 
 
 class DataProcess():
@@ -102,4 +83,5 @@ class DataProcess():
         
         with open('files_to_mirror.json', 'w') as file:   ### Writing to a json file the file name that we need to process.
                 json.dump({"file_name" : []}, file)
-                
+
+
